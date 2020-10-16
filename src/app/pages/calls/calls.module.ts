@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CallsPageRoutingModule } from './calls-routing.module';
 
 import { CallsPage } from './calls.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CallsPageRoutingModule
+    CallsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [CallsPage]
 })
