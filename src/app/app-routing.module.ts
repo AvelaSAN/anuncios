@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'local',
+    loadChildren: () => import('./pages/local/local.module').then( m => m.LocalPageModule)
   }
 ];
 

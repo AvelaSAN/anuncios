@@ -24,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: FolderPage,
     redirectTo: 'tabs/account',
     pathMatch: 'full'
   }
