@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { IonInfiniteScroll, IonRouterOutlet, ModalController } from '@ionic/angular';
+import { LocalPage } from '../local/local.page';
 
 @Component({
   selector: 'app-account',
@@ -11,7 +12,12 @@ export class AccountPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   data: any[] = Array(20)
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+    private routerOutlet: IonRouterOutlet) 
+    {
+
+    }
 
   ngOnInit() {
   }
@@ -34,6 +40,21 @@ export class AccountPage implements OnInit {
 
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
+
+  async presentModal() {
+    const modal = await this.modalCtrl.create({
+      component: LocalPage,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
+      componentProps: {
+        'firstName': 'Douglas',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
+    });
+    return await modal.present();
   }
 
 }

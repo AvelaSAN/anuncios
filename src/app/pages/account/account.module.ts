@@ -8,6 +8,8 @@ import { AccountPageRoutingModule } from './account-routing.module';
 
 import { AccountPage } from './account.page';
 import { ComponentsModule } from '../../components/components.module';
+import { LocalPage } from '../local/local.page';
+import { LocalPageModule } from '../local/local.module';
 
 @NgModule({
   imports: [
@@ -15,8 +17,12 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     AccountPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    LocalPageModule
   ],
-  declarations: [AccountPage]
+  declarations: [AccountPage],
+  entryComponents: [
+    LocalPage
+  ]
 })
 export class AccountPageModule {}
